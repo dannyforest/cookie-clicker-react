@@ -16,8 +16,21 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
     }, [count]);
 
     const handleClick = () => {
+        // Incrémenter le compteur
         setCount(count + 1);
+
+        // Effet supplémentaire 1 : Afficher une alerte
+        alert("Hey! I'm so delicious. eat me as much as you want");
+
+        // Définir la fonction setBgColor pour changer la couleur de fond
+        const setBgColor = (color: string) => {
+            document.body.style.backgroundColor = color;
+        };
+
+        // Effet supplémentaire 2 : Changer la couleur de fond du composant
+        setBgColor("#F0F0F0"); // Supposons que bgColor soit une autre variable d'état utilisée pour la couleur de fond
     };
+
 
     const handleReset = () => {
         setCount(0);
