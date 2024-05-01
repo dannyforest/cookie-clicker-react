@@ -15,21 +15,39 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
         localStorage.setItem('cookieCount', count.toString());
     }, [count]);
 
-    const handleClick = () => {
-        // Incrémenter le compteur
-        setCount(count + 1);
+    const [clickCount, setClickCount] = useState<number>(0);
 
-        // Effet supplémentaire 1 : Afficher une alerte
-        alert("Hey! I'm so delicious. eat me as much as you want");
+    const handleClick = () => {
+        // Incrémenter le compteur de clics
+        setClickCount(clickCount + 1);
+
+        // Vérifier si le nombre de clics est un multiple de 5
+        if ((clickCount + 1) % 5 === 0) {
+            // Afficher une alerte
+            alert("You clicked the cookie 5 times!");
+        }
 
         // Définir la fonction setBgColor pour changer la couleur de fond
         const setBgColor = (color: string) => {
             document.body.style.backgroundColor = color;
         };
 
-        // Effet supplémentaire 2 : Changer la couleur de fond du composant
-        setBgColor("#F0F0F0"); // Supposons que bgColor soit une autre variable d'état utilisée pour la couleur de fond
+        // Vérifier si le nombre de clics est un multiple de 3
+        if ((clickCount + 1) % 3 === 0) {
+            // Changer la couleur de fond en rouge
+            setBgColor("#FF0000");
+        } else if ((clickCount + 1) % 3 === 2) {
+            // Changer la couleur de fond en bleu
+            setBgColor("#0000FF");
+        } else {
+            // Changer la couleur de fond en vert
+            setBgColor("#00FF00");
+        }
+
+        // Incrémenter le compteur de cookies
+        setCount(count + 1);
     };
+
 
 
     const handleReset = () => {
