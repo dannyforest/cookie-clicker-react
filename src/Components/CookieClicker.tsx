@@ -89,7 +89,7 @@ const Cookie: React.FC<CookieProps> = ({ onClick, size }) => (
 );
 
 const StyledCookieImage = styled.img<{ size: "small" | "large" }>`
-    width: ${props => props.size === "small" ? "200px" : "400px"};
+    width: ${props => props.size === "small" ? "200px" : "1000px"};
     cursor: pointer;
     transition: transform 0.2s;
 
