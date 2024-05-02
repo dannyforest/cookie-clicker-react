@@ -5,7 +5,7 @@ interface CookieClickerProps {
     fireworkFrequency?: number; // Prop to determine when to show fireworks
 }
 
-const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }) => {
+const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20 }) => {
     const [count, setCount] = useState<number>(() => {
         const storedCount = localStorage.getItem('cookieCount');
         return storedCount ? parseInt(storedCount) : 0;
@@ -19,7 +19,6 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
 
     const [cookieSize, setCookieSize] = useState<"small" | "large">("small");
 
-// Dans la fonction handleClick
     const handleClick = () => {
         // Incrémenter le compteur de clics
         setClickCount(clickCount + 1);
@@ -38,11 +37,11 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
         // Vérifier si le nombre de clics est un multiple de 3
         if ((clickCount + 1) % 3 === 0) {
             // Effet supplémentaire 2 : Changer la couleur de fond du composant en rouge
-            setBgColor("#FF0000");}
-        if ((clickCount + 1) % 5 === 0) {
+            setBgColor("#FF0000");
+        } else if ((clickCount + 1) % 5 === 0) {
             // Effet supplémentaire 2 : Changer la couleur de fond du composant en bleu
-            setBgColor("#0000FF"); }
-        if ((clickCount + 1) % 8 === 0) {
+            setBgColor("#0000FF");
+        } else if ((clickCount + 1) % 8 === 0) {
             // Effet supplémentaire 2 : Changer la couleur de fond du composant en vert
             setBgColor("#00FF00");
         }
@@ -60,8 +59,6 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
         }
     };
 
-
-
     const handleReset = () => {
         setCount(0);
         localStorage.setItem('cookieCount', '0');
@@ -69,7 +66,7 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
 
     return (
         <div>
-            <Cookie onClick={handleClick}/>
+            <Cookie size={cookieSize} onClick={handleClick} />
             <p>Cookie Clicks: {count}</p>
             {count % fireworkFrequency === 0 && count !== 0 && <p>🎆 Fireworks! 🎆</p>}
             <button onClick={handleReset}>Reset Score</button>
@@ -79,18 +76,20 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
 
 interface CookieProps {
     onClick: () => void;
+    size: "small" | "large";
 }
 
-const Cookie: React.FC<CookieProps> = ({ onClick }) => (
+const Cookie: React.FC<CookieProps> = ({ onClick, size }) => (
     <StyledCookieImage
         src="https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg"
         alt="Click me cookie"
         onClick={onClick}
+        size={size}
     />
 );
 
-const StyledCookieImage = styled.img`
-    width: 200px;
+const StyledCookieImage = styled.img<{ size: "small" | "large" }>`
+    width: ${props => props.size === "small" ? "200px" : "400px"};
     cursor: pointer;
     transition: transform 0.2s;
 
