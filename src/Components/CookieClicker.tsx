@@ -26,7 +26,7 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20 })
         // Vérifier si le nombre de clics est un multiple de 5
         if ((clickCount + 1) % 5 === 0) {
             // Effet supplémentaire 1 : Afficher une alerte
-            alert("You clicked the cookie 5 times!");
+            alert("I am so delicious, please eat me fast!");
         }
 
         // Définir la fonction setBgColor pour changer la couleur de fond
