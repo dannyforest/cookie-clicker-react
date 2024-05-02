@@ -36,10 +36,10 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
         };
 
         // Vérifier si le nombre de clics est un multiple de 3
-        if ((clickCount + 1) % 3 === 0) {
+        if (((clickCount + 1)/ 3)%3 === 1){
             // Effet supplémentaire 2 : Changer la couleur de fond du composant en rouge
             setBgColor("#FF0000");
-        } else if ((clickCount + 1) % 3 === 2) {
+        } else if (((clickCount + 1)/ 3)%3 === 2) {
             // Effet supplémentaire 2 : Changer la couleur de fond du composant en bleu
             setBgColor("#0000FF");
         } else {
