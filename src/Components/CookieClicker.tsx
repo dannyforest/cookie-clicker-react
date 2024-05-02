@@ -17,13 +17,16 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
 
     const [clickCount, setClickCount] = useState<number>(0);
 
+    const [cookieSize, setCookieSize] = useState<"small" | "large">("small");
+
+// Dans la fonction handleClick
     const handleClick = () => {
         // Incrémenter le compteur de clics
         setClickCount(clickCount + 1);
 
         // Vérifier si le nombre de clics est un multiple de 5
         if ((clickCount + 1) % 5 === 0) {
-            // Afficher une alerte
+            // Effet supplémentaire 1 : Afficher une alerte
             alert("You clicked the cookie 5 times!");
         }
 
@@ -34,18 +37,27 @@ const CookieClicker: React.FC<CookieClickerProps> = ({ fireworkFrequency = 20  }
 
         // Vérifier si le nombre de clics est un multiple de 3
         if ((clickCount + 1) % 3 === 0) {
-            // Changer la couleur de fond en rouge
+            // Effet supplémentaire 2 : Changer la couleur de fond du composant en rouge
             setBgColor("#FF0000");
         } else if ((clickCount + 1) % 3 === 2) {
-            // Changer la couleur de fond en bleu
+            // Effet supplémentaire 2 : Changer la couleur de fond du composant en bleu
             setBgColor("#0000FF");
         } else {
-            // Changer la couleur de fond en vert
+            // Effet supplémentaire 2 : Changer la couleur de fond du composant en vert
             setBgColor("#00FF00");
         }
 
         // Incrémenter le compteur de cookies
         setCount(count + 1);
+
+        // Gérer le changement de taille du cookie
+        if ((clickCount + 1) % 10 === 0) {
+            // Double la taille du cookie
+            setCookieSize("large");
+        } else if ((clickCount + 1) % 10 === 5) {
+            // Réinitialise la taille du cookie à la taille initiale
+            setCookieSize("small");
+        }
     };
 
 
