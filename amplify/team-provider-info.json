@@ -23,6 +23,14 @@
       "StackName": "amplify-cookieclicker-alexis-eaf8e",
       "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-alexis-eaf8e/70bcf6c0-0bab-11ef-aa7c-0afff868a021",
       "AmplifyAppId": "d3glu8vmgo8la5"
+    },
+    "categories": {
+      "function": {
+        "cookieclicker": {
+          "deploymentBucketName": "amplify-cookieclicker-alexis-eaf8e-deployment",
+          "s3Key": "amplify-builds/cookieclicker-79684c7158342b6e376c-build.zip"
+        }
+      }
     }
   }
 }
