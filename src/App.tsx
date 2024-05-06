@@ -5,7 +5,7 @@ import axios from "axios";
 function App() {
   useEffect(() => {
     axios.get("https://6zlk74lrhsnaskh5ufoyjj7vly0nkhip.lambda-url.us-east-1.on.aws/").then((res) => {
-      alert(res);
+      alert(res.data);
     });
   }, []);
   return (
