@@ -17,6 +17,9 @@
           "deploymentBucketName": "amplify-cookieclicker-danny-80030-deployment",
           "s3Key": "amplify-builds/cookieclicker-616a4a78443456626e39-build.zip"
         }
+      },
+      "api": {
+        "cookieclicker": {}
       }
     }
   },
