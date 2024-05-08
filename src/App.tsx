@@ -11,13 +11,13 @@ function App() {
   return (
     <div className="App">
         {/*<div style={styles.cookiesContainer}>*/}
-        <CookiesContainer2>
+        <CookiesContainer>
             {
                 cookies.map(cookie => (
                     <Cookie image={cookie + '.webp'} />
                 ))
             }
-        </CookiesContainer2>
+        </CookiesContainer>
     </div>
   );
 }
