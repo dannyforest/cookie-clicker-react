@@ -1,0 +1,47 @@
+{
+  "api": {
+    "cookieclicker": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2025-05-10T12:42:10.882Z",
+              "apiKeyExpirationDays": 365,
+              "description": ""
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "function": {
+    "cookieclickerf411130c": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_cookieclickerf411130c_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cookieclickerf411130c"
+        }
+      ]
+    },
+    "AMPLIFY_function_cookieclickerf411130c_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cookieclickerf411130c"
+        }
+      ]
+    }
+  }
+}
