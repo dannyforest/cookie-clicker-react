@@ -1,60 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
+import {DataStore} from "@aws-amplify/datastore";
+import {UserScore} from "../models";
 
 interface Props {
-    defaultImage: string;
-    containerClassName?: string;
+    image: string;
+    username: string;
 }
 
-export const Cookie: React.FC<Props> = ({ defaultImage, containerClassName }: Props) => {
-    const localStorageKey: string = `cookieCounter_${defaultImage}`;
-    const [counter, setCounter] = useState<number>(() => {
+export const Cookie = ({image, username}: Props) => {
+    const localStorageKey = `cookieCounter${image}`;
+
+    // Initialize the counter from localStorage if available, otherwise start at 0
+    const [counter, setCounter] = useState(() => {
         const savedCounter = localStorage.getItem(localStorageKey);
         return savedCounter !== null ? parseInt(savedCounter, 10) : 0;
     });
-    const [currentImage, setCurrentImage] = useState<string>(defaultImage);
-    const [showMilestone, setShowMilestone] = useState<boolean>(false);
 
+
+    const [img, setImg] = useState(image);
+
+    // Function to handle the click event that increments the counter
     const handleClick = () => {
-        setCounter(prevCounter => {
-            const newCounter = prevCounter + 1;
-            if (newCounter === 30) {
-                setShowMilestone(true);
-            }
-            return newCounter;
-        });
-    };
+        setCounter(prevCounter => prevCounter + 1);
+    }
 
+    // Function to reset the counter
     const handleReset = () => {
-        const resetConfirmed = window.confirm('Are you sure you want to reset the counter?');
-        if (resetConfirmed) {
-            setCounter(0);
-        }
-    };
+        // setImg('oreo-cookie.webp');
+        setCounter(0);
+    }
 
-    const handleChangeImage = () => {
-        const newImage = prompt('Enter the URL of the new cookie image:');
-        if (newImage) {
-            setCurrentImage(newImage);
-            localStorage.setItem(localStorageKey, String(newImage));
-        }
-    };
+    const addOrUpdateUserScore = async () => {
+        // Add or update the user score in the database
+        const original = await DataStore.query(UserScore, (c) => c.name.eq(username));
 
+        if (original.length > 0) {
+            if (original[0].score < counter) {
+                const updatedUserScore = await DataStore.save(
+                    UserScore.copyOf(original[0], updated => {
+                        updated.score = counter
+                    })
+                );
+
+                console.log(updatedUserScore);
+            }
+        } else {
+            await DataStore.save(new UserScore({name: username, score: counter}));
+        }
+    }
+
+    // Use useEffect to store the counter in localStorage when it changes
     useEffect(() => {
         localStorage.setItem(localStorageKey, String(counter));
+        addOrUpdateUserScore();
     }, [counter]);
 
     return (
-        <div className={`cookie-container ${containerClassName}`}>
-            <h1>{currentImage}</h1>
-            <img
-                src={currentImage}
-                alt={'a very delicious looking cookie! Yummy yummy!'}
-                onClick={handleClick}
+        <div className={'cookie-container'}>
+            <h1>{image}</h1>
+            {/*<img src={img} alt={'a very delicious looking cookie! Yummy yummy!'}*/}
+            <img src={image} alt={'a very delicious looking cookie! Yummy yummy!'}
+                 onClick={handleClick} // Add the onClick handler to the image
             />
-            <h1>Cookie clicks: {counter}</h1>
+            <h1>Cookie clicks: {counter}</h1> {/* Display the current counter */}
             <button onClick={handleReset}>Reset Counter</button>
-            <button onClick={handleChangeImage}>Change Image</button>
-            {showMilestone && <p>You've reached 30 clicks! Great job!</p>}
         </div>
-    );
-};
+    )
+}
