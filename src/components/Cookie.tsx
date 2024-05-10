@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import {DataStore} from "@aws-amplify/datastore";
+import {UserScore} from "../models";
 
 interface Props {
-    image: string
+    image: string;
+    username: string;
 }
 
-export const Cookie = ({image}: Props) => {
+export const Cookie = ({image, username}: Props) => {
     const localStorageKey = `cookieCounter${image}`;
 
     // Initialize the counter from localStorage if available, otherwise start at 0
@@ -20,6 +23,21 @@ export const Cookie = ({image}: Props) => {
         setCounter(prevCounter => prevCounter + 1);
     }
 
+    const addOrUpdateUserScore = async () => {
+        const userScores = await DataStore.query(UserScore, (c) => c.name.eq(username));
+        const original = userScores[0];
+
+        if (userScores.length > 0 && original.score > counter) {
+            await DataStore.save(
+                UserScore.copyOf(original, updated => {
+                    updated.score = counter
+                })
+            );
+        } else {
+            await DataStore.save(new UserScore({name: username, score: counter}));
+        }
+    }
+
     // Function to reset the counter
     const handleReset = () => {
         // setImg('oreo-cookie.webp');
@@ -29,6 +47,9 @@ export const Cookie = ({image}: Props) => {
     // Use useEffect to store the counter in localStorage when it changes
     useEffect(() => {
         localStorage.setItem(localStorageKey, String(counter));
+
+        if (counter > 0)
+            addOrUpdateUserScore().then(r => {});
     }, [counter]);
 
     return (
