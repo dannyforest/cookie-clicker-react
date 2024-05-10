@@ -17,15 +17,6 @@ const cookies = [
 ]
 
 function App() {
-    const [userScores, setUserScores] = useState<UserScore[]>([]);
-    useEffect(() => {
-        console.log('test')
-        DataStore.query(UserScore).then(userScores => {
-            console.log('here')
-            console.log(userScores);
-        })
-    }, []);
-
     return (
         <div className="App">
             {/*<div style={styles.cookiesContainer}>*/}
