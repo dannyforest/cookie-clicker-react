@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import {Cookie} from "./components/Cookie";
 import styled from 'styled-components';
+import Leaderboard from "./components/Leaderboard";
+import { Datastore } from 'aws-sdk/@datastore';
+
 
 const cookies = [
     "cookie", "oreo-cookie", "chocolate-cookie"
@@ -18,6 +21,7 @@ function App() {
                 ))
             }
         </CookiesContainer2>
+        <Leaderboard />
     </div>
   );
 }
