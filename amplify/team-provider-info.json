@@ -15,7 +15,7 @@
       "function": {
         "cookieclicker": {
           "deploymentBucketName": "amplify-cookieclicker-mike-2d780-deployment",
-          "s3Key": "amplify-builds/cookieclicker-7373384c734432685964-build.zip"
+          "s3Key": "amplify-builds/cookieclicker-4375627a323453674b74-build.zip"
         }
       },
       "api": {
