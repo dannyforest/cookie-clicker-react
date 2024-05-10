@@ -17,6 +17,9 @@
           "deploymentBucketName": "amplify-cookieclicker-audrey-aaaab-deployment",
           "s3Key": "amplify-builds/cookieclicker-6c5a622f6c74756e494e-build.zip"
         }
+      },
+      "api": {
+        "cookieclicker": {}
       }
     }
   },
