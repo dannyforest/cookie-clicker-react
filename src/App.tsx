@@ -1,13 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Cookie} from "./components/Cookie";
 import styled from 'styled-components';
+
+import {Amplify} from 'aws-amplify';
+import {Datastore} from '@aws-amplify/datastore';
+import config from './amplifyconfiguration.json';
+import {UserScores} from "./models";
+
+Amplify.configure(config);
+
 
 const cookies = [
     "cookie", "oreo-cookie", "chocolate-cookie"
 ]
 
 function App() {
+    const [userScores, setUserScores] = useState<UserScores[]>([]);
+    useEffect(() => {
+
+    }, []);
   return (
     <div className="App">
         {/*<div style={styles.cookiesContainer}>*/}
