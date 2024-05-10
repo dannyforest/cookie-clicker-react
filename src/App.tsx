@@ -17,13 +17,30 @@ const cookies = [
 ]
 
 function App() {
+    const [username, setUsername] = useState(() => {
+        const savedUsername = localStorage.getItem('username');
+        return savedUsername !== null ? savedUsername : '';
+    });
+
+    const handleUsernameChange = (event: any) => {
+        setUsername(event.target.value);
+    };
+
     return (
         <div className="App">
             {/*<div style={styles.cookiesContainer}>*/}
+            <label htmlFor="username">Username:</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                value={username}
+                onChange={handleUsernameChange}
+            />
             <CookiesContainer2>
                 {
                     cookies.map(cookie => (
-                        <Cookie key={cookie} image={cookie + '.webp'}/>
+                        <Cookie key={cookie} image={cookie + '.webp'} username={username} />
                     ))
                 }
             </CookiesContainer2>

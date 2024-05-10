@@ -10,10 +10,8 @@ const Leaderboard = () => {
     const [userScores, setUserScores] = useState<UserScore[]>([]);
     useEffect(() => {
         const loadLeaderboards = async () => {
-            console.log('test');
             try {
                 const userScores = await DataStore.query(UserScore);
-                console.log(userScores);
                 setUserScores(userScores);
             } catch (error) {
                 console.log('Error retrieving posts', error);
@@ -27,7 +25,9 @@ const Leaderboard = () => {
         <div>
             <h1>Leaderboard</h1>
             <ul>
-                {userScores.map((userScore) => (
+                {userScores.sort((a,b) => {
+                    return b.score - a.score;
+                }).map((userScore) => (
                     <li key={userScore.id}>{userScore.name} - {userScore.score}</li>
                 ))}
             </ul>

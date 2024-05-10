@@ -13,7 +13,7 @@ type EagerUserScore = {
   };
   readonly id: string;
   readonly name: string;
-  readonly score?: number | null;
+  readonly score: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -25,7 +25,7 @@ type LazyUserScore = {
   };
   readonly id: string;
   readonly name: string;
-  readonly score?: number | null;
+  readonly score: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

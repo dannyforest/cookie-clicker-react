@@ -21,7 +21,7 @@ export const schema = {
                     "name": "score",
                     "isArray": false,
                     "type": "Int",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "createdAt": {
@@ -54,5 +54,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "21dbf7b952135400efb2589fc9247199"
+    "version": "295196d9f2e7bf7fe5b5a81fd196aa19"
 };
