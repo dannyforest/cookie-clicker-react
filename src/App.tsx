@@ -58,8 +58,10 @@ const CookiesContainer = styled.div`
 `;
 
 const CookiesContainer2 = styled(CookiesContainer)`
-    background-color: lightblue;
+    background-color: lightpink;
 `;
+
+
 
 // const styles = {
 //     cookiesContainer: {display: 'flex', flexDirection: 'row', justifyContent: 'center'}
