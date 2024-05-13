@@ -5,23 +5,5 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
-  },
-  "parameters": {
-    "AMPLIFY_function_cookieclicker_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "cookieclicker"
-        }
-      ]
-    },
-    "AMPLIFY_function_cookieclicker_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "cookieclicker"
-        }
-      ]
-    }
   }
 }

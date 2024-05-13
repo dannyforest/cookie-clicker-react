@@ -1,17 +1,4 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-cookieclicker-dev-75157-authRole",
-      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-dev-75157-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-dev-75157-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-cookieclicker-dev-75157-deployment",
-      "UnauthRoleName": "amplify-cookieclicker-dev-75157-unauthRole",
-      "StackName": "amplify-cookieclicker-dev-75157",
-      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-dev-75157/0b336d40-0b9f-11ef-8d06-0e8d2fdecbdb",
-      "AmplifyAppId": "d3glu8vmgo8la5"
-    }
-  },
   "alexis": {
     "awscloudformation": {
       "AuthRoleName": "amplify-cookieclicker-alexis-eaf8e-authRole",
@@ -26,10 +13,52 @@
     },
     "categories": {
       "function": {
+        "cookieclicker": {}
+      }
+    }
+  },
+  "danny": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cookieclicker-danny-80030-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-danny-80030-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-danny-80030-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cookieclicker-danny-80030-deployment",
+      "UnauthRoleName": "amplify-cookieclicker-danny-80030-unauthRole",
+      "StackName": "amplify-cookieclicker-danny-80030",
+      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-danny-80030/3cf84070-0ba0-11ef-94fc-12034280c261",
+      "AmplifyAppId": "d3glu8vmgo8la5"
+    },
+    "categories": {
+      "function": {
         "cookieclicker": {
-          "deploymentBucketName": "amplify-cookieclicker-alexis-eaf8e-deployment",
-          "s3Key": "amplify-builds/cookieclicker-79684c7158342b6e376c-build.zip"
+          "deploymentBucketName": "amplify-cookieclicker-danny-80030-deployment",
+          "s3Key": "amplify-builds/cookieclicker-616a4a78443456626e39-build.zip"
         }
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cookieclicker-dev-75157-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-dev-75157-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-dev-75157-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cookieclicker-dev-75157-deployment",
+      "UnauthRoleName": "amplify-cookieclicker-dev-75157-unauthRole",
+      "StackName": "amplify-cookieclicker-dev-75157",
+      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-dev-75157/0b336d40-0b9f-11ef-8d06-0e8d2fdecbdb",
+      "AmplifyAppId": "d3glu8vmgo8la5"
+    },
+    "categories": {
+      "function": {
+        "cookieclicker": {
+          "deploymentBucketName": "amplify-cookieclicker-dev-75157-deployment",
+          "s3Key": "amplify-builds/cookieclicker-616a4a78443456626e39-build.zip"
+        }
+      },
+      "api": {
+        "cookieclicker": {}
       }
     }
   }
