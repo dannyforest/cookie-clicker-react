@@ -1,4 +1,28 @@
 {
+  "sofiane": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cookieclicker-sofiane-4a3db-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-sofiane-4a3db-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-sofiane-4a3db-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cookieclicker-sofiane-4a3db-deployment",
+      "UnauthRoleName": "amplify-cookieclicker-sofiane-4a3db-unauthRole",
+      "StackName": "amplify-cookieclicker-sofiane-4a3db",
+      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-sofiane-4a3db/2e4ea1b0-10a8-11ef-9d9a-12098598cd31",
+      "AmplifyAppId": "d3glu8vmgo8la5"
+    },
+    "categories": {
+      "function": {
+        "cookieclicker": {
+          "deploymentBucketName": "amplify-cookieclicker-sofiane-4a3db-deployment",
+          "s3Key": "amplify-builds/cookieclicker-4d524931766e64593253-build.zip"
+        }
+      },
+      "api": {
+        "cookieclicker": {}
+      }
+    }
+  },
   "danny": {
     "awscloudformation": {
       "AuthRoleName": "amplify-cookieclicker-danny-80030-authRole",
