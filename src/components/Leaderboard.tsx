@@ -1,20 +1,14 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Amplify} from 'aws-amplify';
 import {DataStore} from '@aws-amplify/datastore';
 import config from '../amplifyconfiguration.json';
 import {UserScore} from "../models";
 import styled from "styled-components";
 
+
 Amplify.configure(config);
 
-const leaderboardContainer = {
-        width: "35%",
-        margin: "0 auto",
-        border: "1px solid black",
-        marginTop: "20px",
-        backgroundColor: "lightblue"
-    }
-;
+
 
 const Leaderboard = () => {
     const [userScores, setUserScores] = useState<UserScore[]>([]);
@@ -32,18 +26,30 @@ const Leaderboard = () => {
     }, []);
 
     return (
-        <div style={leaderboardContainer}>
+        <LeaderboardContainer>
             <h1>Leaderboard</h1>
-            <ul>
+            <UlStyle>
                 {userScores.sort((a,b) => {
                     return b.score - a.score;
                 }).map((userScore) => (
-                    <li key={userScore.id}>{userScore.name} - {userScore.score}</li>
+                    <li key={userScore.id}>{userScore.name}: {userScore.score}</li>
                 ))}
-            </ul>
-        </div>
+            </UlStyle>
+        </LeaderboardContainer>
     )
 }
 
 export default Leaderboard;
 
+const LeaderboardContainer = styled.div`
+    width: 15%;
+    margin: 0 auto;
+    border: 1px solid black;
+    margin-top: 20px;
+    background-color: lightblue;
+`;
+
+const UlStyle = styled.ul`
+    list-style-type: none;
+    font-size: 25px;
+`;
