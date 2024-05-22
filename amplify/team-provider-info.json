@@ -1,4 +1,31 @@
 {
+  "patrick": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cookieclicker-patrick-03ece-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-patrick-03ece-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492272245:role/amplify-cookieclicker-patrick-03ece-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cookieclicker-patrick-03ece-deployment",
+      "UnauthRoleName": "amplify-cookieclicker-patrick-03ece-unauthRole",
+      "StackName": "amplify-cookieclicker-patrick-03ece",
+      "StackId": "arn:aws:cloudformation:us-east-1:381492272245:stack/amplify-cookieclicker-patrick-03ece/3c384ad0-0bab-11ef-827e-12d6b3cfc4eb",
+      "AmplifyAppId": "d3glu8vmgo8la5"
+    },
+    "categories": {
+      "function": {
+        "cookieclicker": {
+          "deploymentBucketName": "amplify-cookieclicker-patrick-03ece-deployment",
+          "s3Key": "amplify-builds/cookieclicker-793664547441772f3079-build.zip"
+        }
+      },
+      "auth": {
+        "cookieclicker1f2eb0a9": {}
+      },
+      "api": {
+        "cookieclicker": {}
+      }
+    }
+  },
   "danny": {
     "awscloudformation": {
       "AuthRoleName": "amplify-cookieclicker-danny-80030-authRole",

@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import {DataStore} from "@aws-amplify/datastore";
 import {UserScore} from "../models";
 
+
 interface Props {
     image: string;
     username: string;
+    setDisplayCookies: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const Cookie = ({image, username}: Props) => {
+export const Cookie = ({image, username, setDisplayCookies}: Props) => {
     const localStorageKey = `cookieCounter${image}`;
 
     // Initialize the counter from localStorage if available, otherwise start at 0
@@ -17,12 +19,24 @@ export const Cookie = ({image, username}: Props) => {
     });
 
 
-    const [img, setImg] = useState(image);
-
-    // Function to handle the click event that increments the counter
     const handleClick = () => {
-        setCounter(prevCounter => prevCounter + 1);
-    }
+        setCounter(prevCounter => {
+            const newCounter = prevCounter + 1;
+            if (newCounter % 5 === 0) {
+                setDisplayCookies(prevCookies => {
+                    // Check how many times this specific image has been added
+                    const cookieCount = prevCookies.filter(cookie => cookie === image).length;
+                    // Add the image only if it's less than the current count of multiples of 5
+                    if (cookieCount < newCounter / 5) {
+                        return [...prevCookies, image];
+                    }
+                    return prevCookies;
+                });
+            }
+            return newCounter;
+        });
+    };
+
 
     // Function to reset the counter
     const handleReset = () => {
@@ -64,6 +78,7 @@ export const Cookie = ({image, username}: Props) => {
             />
             <h1>Cookie clicks: {counter}</h1> {/* Display the current counter */}
             <button onClick={handleReset}>Reset Counter</button>
+
         </div>
     )
 }

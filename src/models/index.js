@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { UserScore } = initSchema(schema);
+const { Todo, UserScore } = initSchema(schema);
 
 export {
+  Todo,
   UserScore
 };
