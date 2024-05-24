@@ -15,11 +15,14 @@
       "function": {
         "cookieclicker": {
           "deploymentBucketName": "amplify-cookieclicker-audrey-aaaab-deployment",
-          "s3Key": "amplify-builds/cookieclicker-6c5a622f6c74756e494e-build.zip"
+          "s3Key": "amplify-builds/cookieclicker-63484f7143325348664d-build.zip"
         }
       },
       "api": {
         "cookieclicker": {}
+      },
+      "auth": {
+        "cookieclickerc21db6f6": {}
       }
     }
   },

@@ -77,8 +77,10 @@ export const syncTodos = /* GraphQL */ `query SyncTodos(
 export const getUserScore = /* GraphQL */ `query GetUserScore($id: ID!) {
   getUserScore(id: $id) {
     id
+    userId
     name
     score
+    image
     createdAt
     updatedAt
     _version
@@ -99,8 +101,10 @@ export const listUserScores = /* GraphQL */ `query ListUserScores(
   listUserScores(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      userId
       name
       score
+      image
       createdAt
       updatedAt
       _version
@@ -131,8 +135,10 @@ export const syncUserScores = /* GraphQL */ `query SyncUserScores(
   ) {
     items {
       id
+      userId
       name
       score
+      image
       createdAt
       updatedAt
       _version

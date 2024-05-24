@@ -62,8 +62,10 @@ export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: Mo
 export const onCreateUserScore = /* GraphQL */ `subscription OnCreateUserScore($filter: ModelSubscriptionUserScoreFilterInput) {
   onCreateUserScore(filter: $filter) {
     id
+    userId
     name
     score
+    image
     createdAt
     updatedAt
     _version
@@ -79,8 +81,10 @@ export const onCreateUserScore = /* GraphQL */ `subscription OnCreateUserScore($
 export const onUpdateUserScore = /* GraphQL */ `subscription OnUpdateUserScore($filter: ModelSubscriptionUserScoreFilterInput) {
   onUpdateUserScore(filter: $filter) {
     id
+    userId
     name
     score
+    image
     createdAt
     updatedAt
     _version
@@ -96,8 +100,10 @@ export const onUpdateUserScore = /* GraphQL */ `subscription OnUpdateUserScore($
 export const onDeleteUserScore = /* GraphQL */ `subscription OnDeleteUserScore($filter: ModelSubscriptionUserScoreFilterInput) {
   onDeleteUserScore(filter: $filter) {
     id
+    userId
     name
     score
+    image
     createdAt
     updatedAt
     _version

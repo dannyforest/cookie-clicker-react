@@ -93,14 +93,18 @@ export type DeleteTodoInput = {
 
 export type CreateUserScoreInput = {
   id?: string | null,
+  userId: string,
   name: string,
   score: number,
+  image: string,
   _version?: number | null,
 };
 
 export type ModelUserScoreConditionInput = {
+  userId?: ModelStringInput | null,
   name?: ModelStringInput | null,
   score?: ModelIntInput | null,
+  image?: ModelStringInput | null,
   and?: Array< ModelUserScoreConditionInput | null > | null,
   or?: Array< ModelUserScoreConditionInput | null > | null,
   not?: ModelUserScoreConditionInput | null,
@@ -124,8 +128,10 @@ export type ModelIntInput = {
 export type UserScore = {
   __typename: "UserScore",
   id: string,
+  userId: string,
   name: string,
   score: number,
+  image: string,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -135,8 +141,10 @@ export type UserScore = {
 
 export type UpdateUserScoreInput = {
   id: string,
+  userId?: string | null,
   name?: string | null,
   score?: number | null,
+  image?: string | null,
   _version?: number | null,
 };
 
@@ -182,8 +190,10 @@ export type ModelTodoConnection = {
 
 export type ModelUserScoreFilterInput = {
   id?: ModelIDInput | null,
+  userId?: ModelStringInput | null,
   name?: ModelStringInput | null,
   score?: ModelIntInput | null,
+  image?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelUserScoreFilterInput | null > | null,
@@ -242,8 +252,10 @@ export type ModelSubscriptionStringInput = {
 
 export type ModelSubscriptionUserScoreFilterInput = {
   id?: ModelSubscriptionIDInput | null,
+  userId?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
   score?: ModelSubscriptionIntInput | null,
+  image?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionUserScoreFilterInput | null > | null,
@@ -329,8 +341,10 @@ export type CreateUserScoreMutation = {
   createUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -348,8 +362,10 @@ export type UpdateUserScoreMutation = {
   updateUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -367,8 +383,10 @@ export type DeleteUserScoreMutation = {
   deleteUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -454,8 +472,10 @@ export type GetUserScoreQuery = {
   getUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -476,8 +496,10 @@ export type ListUserScoresQuery = {
     items:  Array< {
       __typename: "UserScore",
       id: string,
+      userId: string,
       name: string,
       score: number,
+      image: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -502,8 +524,10 @@ export type SyncUserScoresQuery = {
     items:  Array< {
       __typename: "UserScore",
       id: string,
+      userId: string,
       name: string,
       score: number,
+      image: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -577,8 +601,10 @@ export type OnCreateUserScoreSubscription = {
   onCreateUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -595,8 +621,10 @@ export type OnUpdateUserScoreSubscription = {
   onUpdateUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -613,8 +641,10 @@ export type OnDeleteUserScoreSubscription = {
   onDeleteUserScore?:  {
     __typename: "UserScore",
     id: string,
+    userId: string,
     name: string,
     score: number,
+    image: string,
     createdAt: string,
     updatedAt: string,
     _version: number,

@@ -60,6 +60,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "userId": {
+                    "name": "userId",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "name": {
                     "name": "name",
                     "isArray": false,
@@ -71,6 +78,13 @@ export const schema = {
                     "name": "score",
                     "isArray": false,
                     "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "image": {
+                    "name": "image",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -104,5 +118,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "8f3469f3c893d36e05d454b9025492fb"
+    "version": "f50c981fff605d874dd2e89ebdd9840d"
 };

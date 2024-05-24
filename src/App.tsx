@@ -3,6 +3,8 @@ import './App.css';
 import {Cookie} from "./components/Cookie";
 import styled from 'styled-components';
 import Leaderboard from "./components/Leaderboard";
+import {signOut} from 'aws-amplify/auth';
+import {getCurrentUser} from 'aws-amplify/auth';
 
 import {Amplify} from 'aws-amplify';
 import {DataStore} from '@aws-amplify/datastore';
@@ -35,10 +37,23 @@ function App() {
         setUsername(event.target.value);
     };
 
+    async function handleSignOut() {
+        try {
+            await signOut();
+        } catch (error) {
+            console.log('error signing out: ', error);
+        }
+    }
+
     return (
         <div className="App">
             {/*<div style={styles.cookiesContainer}>*/}
-            <label htmlFor="username">Username:</label>
+            <button
+                onClick={() => handleSignOut()}>LOG OUT
+            </button>
+            <div>
+                <label htmlFor="username">Username:</label>
+            </div>
             <input
                 type="text"
                 id="username"
@@ -67,7 +82,7 @@ const CookiesContainer = styled.div`
 `;
 
 const CookiesContainer2 = styled(CookiesContainer)`
-    background-color: lightblue;
+    background-color: #7cefda;
 `;
 
 // const styles = {

@@ -3,6 +3,7 @@ import {Amplify} from 'aws-amplify';
 import {DataStore} from '@aws-amplify/datastore';
 import config from '../amplifyconfiguration.json';
 import {UserScore} from "../models";
+import styled from "styled-components";
 
 Amplify.configure(config);
 
@@ -24,15 +25,19 @@ const Leaderboard = () => {
     return (
         <div>
             <h1>Leaderboard</h1>
-            <ul>
-                {userScores.sort((a,b) => {
+            <LeaderboardList>
+                {userScores.sort((a, b) => {
                     return b.score - a.score;
                 }).map((userScore) => (
                     <li key={userScore.id}>{userScore.name} - {userScore.score}</li>
                 ))}
-            </ul>
+            </LeaderboardList>
         </div>
     )
 }
+
+const LeaderboardList = styled.ul`
+    list-style-type: none;
+`;
 
 export default Leaderboard;
